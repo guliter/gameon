@@ -87,7 +87,7 @@ Download()
 echo ""
 echo "下载Socks5服务中..."
 cd  /root
-git clone https://github.com/guliter/sk5
+git clone https://github.com/wyx176/Socks5
 }
 
 
