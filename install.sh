@@ -122,10 +122,12 @@ uname="qq543236210"
 upasswd="qq543236210"
 port="6555"
 confFile=/etc/opt/ss5/ss5.conf
+ss=/etc/sysconfig/ss5
 echo -e $uname $upasswd >> /etc/opt/ss5/ss5.passwd
 sed -i '87c auth    0.0.0.0/0               -               u' $confFile
 sed -i '203c permit u	0.0.0.0/0	-	0.0.0.0/0	-	-	-	-	-' $confFile
-sed -i '2c SS5_OPTS="-u root -b 0.0.0.0:4888"' /etc/sysconfig/ss5
+ 
+sed -i '2c SS5_OPTS='$port'' $ss
 
 
 #添加开机启动
