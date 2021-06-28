@@ -176,7 +176,9 @@ installTrojan(){
         fi
         systemctl restart trojan-web
         colorEcho $GREEN "更新trojan管理程序成功!\n"
+        echo "--------------------访问地址----------------------"
         echo "浏览器访问 https://域名 可在线web页面管理trojan用户" 
+        echo "账户：：admin 密码：***"
     fi
     setupCron
     [[ $SHOW_TIP == 1 ]] && echo "浏览器访问'`colorEcho $BLUE https://域名`'可在线trojan多用户管理"
