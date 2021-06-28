@@ -175,7 +175,6 @@ installTrojan(){
             /usr/local/bin/trojan upgrade config
         fi
         systemctl restart trojan-web
-        colorEcho $GREEN "更新trojan管理程序成功!\n"
         colorEcho $GREEN "--------------------访问地址----------------------"
         colorEcho $GREEN "浏览器访问 https://域名 可在线web页面管理trojan用户" 
         colorEcho $GREEN  "账户：：admin 密码：***"
