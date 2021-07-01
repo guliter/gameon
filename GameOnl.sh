@@ -101,9 +101,9 @@ echo -e "${Info} 正在配置站点基本信息"
 cd /www/wwwroot/$website
 #cp conf/application.ini.new conf/application.ini
 sed -i "s/websiteurl/$website/g" /www/wwwroot/$website/conf/application.ini
-sed -i "s/READ_USER/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
-sed -i "s/WRITE_USER/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
-sed -i "s/WRITE_PSWD/$mysqlpassword/g" /www/wwwroot/$website/conf/application.ini
+sed -i "s/zfaka/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
+sed -i "s/zfaka/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
+sed -i "s/1314521/$mysqlpassword/g" /www/wwwroot/$website/conf/application.ini
 echo -e "${Info} 配置站点基本信息已完成"
 sleep 1
 
