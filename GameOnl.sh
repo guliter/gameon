@@ -57,6 +57,7 @@ esac
 echo -e "${Info} 请等待系统自动操作......"
 
 rm -rf /www/wwwroot/$website
+rm -rf /root/gameon
 mkdir /www/wwwroot/$website
 
 #处理源码
@@ -64,7 +65,7 @@ yum install -y  unzip
 yum install -y git
 cd & git clone https://github.com/guliter/gameon && cd /root/gameon && chmod +x oi.guliter.tk.tar.gz && tar -zxvf  oi.guliter.tk.tar.gz && cd /root/gameon/oi.guliter.tk && mv * .[^.]* /www/wwwroot/$website/ && cd /www/wwwroot/$website 
 chmod -R 777 conf/application.ini && chmod -R 777 install/ && chmod -R 777 temp/ && chmod -R 777 log
-rm -rf /root/gameon
+
 
 ##处理nginx伪静态和运行目录
 echo -e "${Info} 正在处理nginx内容"
