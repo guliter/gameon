@@ -56,6 +56,8 @@ case "$status" in
 esac
 echo -e "${Info} 请等待系统自动操作......"
 
+rmdir /www/wwwroot//$website
+
 #处理源码
 yum -y install unzip
 yum -y instabll git
