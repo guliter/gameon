@@ -56,6 +56,7 @@ case "$status" in
 esac
 echo -e "${Info} 请等待系统自动操作......"
 
+rm -rf /www/wwwroot/$website
 mkdir /www/wwwroot/$website
 
 #处理源码
