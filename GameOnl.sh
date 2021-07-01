@@ -92,20 +92,10 @@ sleep 1
 #导入数据库
 echo -e "${Info} 正在导入数据库"
 cd /www/wwwroot/$website/install
-mysql -u$mysqlusername -p$mysqlpassword $mysqldatabase < faka.sql >/dev/null 2>&1
+mysql -uzfaka -p1314521 1314521 < faka.sql >/dev/null 2>&1
 echo -e "${Info} 导入数据库已完成"
 sleep 1
 
-##初始化站点信息
-echo -e "${Info} 正在配置站点基本信息"
-cd /www/wwwroot/$website
-#cp conf/application.ini.new conf/application.ini
-sed -i "s/websiteurl/$website/g" /www/wwwroot/$website/conf/application.ini
-sed -i "s/sspanel-db-databasename/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
-sed -i "s/sspanel-db-username/$mysqlusername/g" /www/wwwroot/$website/conf/application.ini
-sed -i "s/sspanel-db-password/$mysqlpassword/g" /www/wwwroot/$website/conf/application.ini
-echo -e "${Info} 配置站点基本信息已完成"
-sleep 1
 
 
 #增加install文件
