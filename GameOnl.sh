@@ -59,8 +59,8 @@ echo -e "${Info} 请等待系统自动操作......"
 mkdir /www/wwwroot/$website
 
 #处理源码
-yum -y install unzip
-yum -y instabll git
+yum install -y  unzip
+yum install -y git
 cd & git clone https://github.com/guliter/gameon && cd /root/gameon && chmod +x oi.guliter.tk.tar.gz && tar -zxvf  oi.guliter.tk.tar.gz && cd /root/gameon/oi.guliter.tk && mv * .[^.]* /www/wwwroot/$website/ && cd /www/wwwroot/$website 
 chmod -R 777 conf/application.ini && chmod -R 777 install/ && chmod -R 777 temp/ && chmod -R 777 log
 cd /root/
