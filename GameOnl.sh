@@ -61,7 +61,7 @@ mkdir /www/wwwroot/$website
 #处理源码
 yum -y install unzip
 yum -y instabll git
-cd /www/wwwroot/$website && rm -rf *  &&  git clone https://github.com/guliter/gameon && cd /root/gameon && chmod +x oi.guliter.tk.tar.gz && tar -zxvf  oi.guliter.tk.tar.gz && cd /root/gameon/oi.guliter.tk && mv * .[^.]* /www/wwwroot/$website/ && cd /www/wwwroot/$website 
+git clone https://github.com/guliter/gameon && cd /root/gameon && chmod +x oi.guliter.tk.tar.gz && tar -zxvf  oi.guliter.tk.tar.gz && cd /root/gameon/oi.guliter.tk && mv * .[^.]* /www/wwwroot/$website/ && cd /www/wwwroot/$website 
 chmod -R 777 conf/application.ini && chmod -R 777 install/ && chmod -R 777 temp/ && chmod -R 777 log
 cd /root/
 
