@@ -92,15 +92,12 @@ sleep 1
 #导入数据库
 echo -e "${Info} 正在导入数据库"
 cd /www/wwwroot/$website/install
-mysql -uzfaka -p1314521 1314521 < faka.sql >/dev/null 2>&1
+mysql -u$mysqlusername -p$mysqlpassword $mysqldatabase < faka.sql >/dev/null 2>&1
 echo -e "${Info} 导入数据库已完成"
 sleep 1
 
 
 
-#增加install文件
-touch install/install.lock
-echo '1.4.3' >> install/install.lock
 cd /root/
 
 ##加入定时任务
