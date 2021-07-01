@@ -70,7 +70,10 @@ chmod -R 777 conf/application.ini && chmod -R 777 install/ && chmod -R 777 temp/
 ##处理nginx伪静态和运行目录
 echo -e "${Info} 正在处理nginx内容"
 echo 'location / {if (!-e $request_filename) {rewrite ^/(.*)$ /index.php?$1 last;}}'> /www/server/panel/vhost/rewrite/$website.conf
-sed -i "s:\/www\/wwwroot\/${website}:\/www\/wwwroot\/${website}\/public:g" /www/server/panel/vhost/nginx/$website.conf
+#sed -i "s:\/www\/wwwroot\/${website}:\/www\/wwwroot\/${website}\/public:g" /www/server/panel/vhost/nginx/$website.conf
+sed -i '6c root /www/wwwroot/${website}/public/;' /www/server/panel/vhost/nginx/$website.conf
+
+
 echo -e "${Info} 处理nginx内容已完成"
 sleep 1
 
