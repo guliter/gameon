@@ -34,14 +34,14 @@ echo "--------------------------------------------------------------------------
 echo -e "请注意这些要求:“添加网址PHP版本必须选择为“\033[31m PHP7.1 \033[0m”,添加完成后地址不要改动,在下方输入网站目录！"
 echo "----------------------------------------------------------------------------"
 stty erase '^H' && read -p "请输入宝塔面板添加的网站目录,宝塔默认地址应该是域名（不带http/https）：" website
-stty erase '^H' && read -p "请输入宝塔面板添加的MySQL用户名：" mysqlusername
+#stty erase '^H' && read -p "请输入宝塔面板添加的MySQL用户名：" mysqlusername
 stty erase '^H' && read -p "请输入宝塔面板添加的MySQL数据库名：" mysqldatabase
 stty erase '^H' && read -p "请输入宝塔面板添加的MySQL密码：" mysqlpassword
 sleep 1
 echo -e "${Info} 请确认您输入的网站域名：$website"
-echo -e "${Info} 请确认您输入的MySQL用户名：$mysqlusername"
-echo -e "${Info} 请确认您输入的MySQL用户名：$mysqldatabase"
-echo -e "${Info} 请确认您输入的MySQL密码：$mysqlpassword"
+#echo -e "${Info} 请确认您输入的MySQL用户名：$mysqlusername"
+#echo -e "${Info} 请确认您输入的MySQL用户名：$mysqldatabase"
+#echo -e "${Info} 请确认您输入的MySQL密码：$mysqlpassword"
 stty erase '^H' && read -p " 请输入数字(1：继续；2：退出) [1/2]:" status
 case "$status" in
 	1)
@@ -95,6 +95,17 @@ sleep 1
 #mysql -u$mysqlusername -p$mysqlpassword $mysqldatabase < faka.sql >/dev/null 2>&1
 #echo -e "${Info} 导入数据库已完成"
 #sleep 1
+
+##初始化站点信息
+echo -e "${Info} 正在配置站点基本信息"
+cd /www/wwwroot/$website
+#cp conf/application.ini.new conf/application.ini
+sed -i "s/websiteurl/$website/g" /www/wwwroot/$website/conf/application.ini
+sed -i "s/READ_USER/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
+sed -i "s/WRITE_USER/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
+sed -i "s/WRITE_PSWD/$mysqlpassword/g" /www/wwwroot/$website/conf/application.ini
+echo -e "${Info} 配置站点基本信息已完成"
+sleep 1
 
 
 
