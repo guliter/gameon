@@ -197,12 +197,8 @@ clear
 echo "--------------------------------------------------------------------------------"
 echo -e "${Info} 部署完成，请打开http://$website即可浏览"
 echo -e "${Info} 后台地址：http://$website/Admin/login"
-echo -e "${Info} 默认生成的管理员用户名：demo@demo.com 密码为123456"
 echo -e "${Info} 如果打不开站点，请到宝塔面板中软件管理重启nginx和php7.1"
 echo -e "${Info} 自定义配置，请登录管理面板进行修改"
-echo -e "${Info} github地址:https://github.com/lizhongnian/ZFaka-Onekey-ForBT/"
-echo -e "${Info} 脚本作者及联系方式：七彩blog/QQ2413265289"
-echo -e "${Info} 原文地址:https://www.7colorblog.com/?id=77"
 echo "--------------------------------------------------------------------------------"
 
 
