@@ -40,8 +40,8 @@ stty erase '^H' && read -p "请输入宝塔面板添加的MySQL密码：" mysqlp
 sleep 1
 echo -e "${Info} 请确认您输入的网站域名：$website"
 #echo -e "${Info} 请确认您输入的MySQL用户名：$mysqlusername"
-#echo -e "${Info} 请确认您输入的MySQL用户名：$mysqldatabase"
-#echo -e "${Info} 请确认您输入的MySQL密码：$mysqlpassword"
+echo -e "${Info} 请确认您输入的MySQL用户名：$mysqldatabase"
+echo -e "${Info} 请确认您输入的MySQL密码：$mysqlpassword"
 stty erase '^H' && read -p " 请输入数字(1：继续；2：退出) [1/2]:" status
 case "$status" in
 	1)
@@ -90,17 +90,17 @@ echo 'yaf.use_namespace=1' >> /www/server/php/71/etc/php.ini
 sleep 1
 
 #导入数据库
-#echo -e "${Info} 正在导入数据库"
-#cd /www/wwwroot/$website/install
-#mysql -u$mysqlusername -p$mysqlpassword $mysqldatabase < faka.sql >/dev/null 2>&1
-#echo -e "${Info} 导入数据库已完成"
-#sleep 1
+echo -e "${Info} 正在导入数据库"
+cd /www/wwwroot/$website/install
+mysql -u$mysqldatabas -p$mysqlpassword $mysqldatabase < faka.sql >/dev/null 2>&1
+echo -e "${Info} 导入数据库已完成"
+sleep 1
 
 ##初始化站点信息
 echo -e "${Info} 正在配置站点基本信息"
 cd /www/wwwroot/$website
 #cp conf/application.ini.new conf/application.ini
-sed -i "s/websiteurl/$website/g" /www/wwwroot/$website/conf/application.ini
+#sed -i "s/websiteurl/$website/g" /www/wwwroot/$website/conf/application.ini
 sed -i "s/faka/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
 sed -i "s/faka/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
 sed -i "s/1314521/$mysqlpassword/g" /www/wwwroot/$website/conf/application.ini
