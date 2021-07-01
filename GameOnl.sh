@@ -96,5 +96,41 @@ mysql -u$mysqlusername -p$mysqlpassword $mysqldatabase < faka.sql >/dev/null 2>&
 echo -e "${Info} 导入数据库已完成"
 sleep 1
 
+##初始化站点信息
+echo -e "${Info} 正在配置站点基本信息"
+cd /www/wwwroot/$website
+cp conf/application.ini.new conf/application.ini
+sed -i "s/websiteurl/$website/g" /www/wwwroot/$website/conf/application.ini
+sed -i "s/sspanel-db-databasename/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
+sed -i "s/sspanel-db-username/$mysqlusername/g" /www/wwwroot/$website/conf/application.ini
+sed -i "s/sspanel-db-password/$mysqlpassword/g" /www/wwwroot/$website/conf/application.ini
+echo -e "${Info} 配置站点基本信息已完成"
+sleep 1
+
+
+#增加install文件
+touch install/install.lock
+echo '1.4.3' >> install/install.lock
+cd /root/
+
+##加入定时任务
+echo -e "${Info} 正在添加定时任务"
+echo "*/2 * * * * php -q /www/wwwroot/$website/public/cli.php request_uri=\"/crontab/sendemail/index\"" >> /var/spool/cron/root
+chkconfig –level 35 crond on
+/sbin/service crond restart
+echo -e "${Info} 添加定时任务已完成"
+sleep 1
+
+##重启php和nginx
+echo -e "${Info} 正在重启PHP"
+/etc/init.d/php-fpm-71 restart
+echo -e "${Info} 重启PHP已完成"
+sleep 1
+echo -e "${Info} 正在重启NGINX"
+/etc/init.d/nginx restart
+echo -e "${Info} 重启NGINX已完成"
+sleep 3
+
+
 
 
