@@ -99,7 +99,7 @@ sleep 1
 ##初始化站点信息
 echo -e "${Info} 正在配置站点基本信息"
 cd /www/wwwroot/$website
-cp conf/application.ini.new conf/application.ini
+#cp conf/application.ini.new conf/application.ini
 sed -i "s/websiteurl/$website/g" /www/wwwroot/$website/conf/application.ini
 sed -i "s/sspanel-db-databasename/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
 sed -i "s/sspanel-db-username/$mysqlusername/g" /www/wwwroot/$website/conf/application.ini
