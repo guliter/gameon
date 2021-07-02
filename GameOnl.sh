@@ -80,6 +80,8 @@ sleep 1
 #处理php 关闭 PATH_INFO:
 sed -i "s:include pathinfo.conf:#include pathinfo.conf:g" /www/server/nginx/conf/enable-php-73.conf
 
+cd /root/
+
 #安装yaf
 wget -c wget https://github.com/laruence/yaf/archive/yaf-3.0.8.tar.gz
 tar zxf yaf-3.0.8.tar.gz
