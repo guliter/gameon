@@ -79,8 +79,13 @@ sed -i '6c root 	/www/wwwroot/'${website}'/public/;' /www/server/panel/vhost/ngi
 echo -e "${Info} 处理nginx内容已完成"
 sleep 1
 
-#处理php 关闭 PATH_INFO:
+##处理php 关闭 PATH_INFO:
 #sed -i "s:include pathinfo.conf:#include pathinfo.conf:g" /www/server/nginx/conf/enable-php-71.conf
+
+#处理PHP禁用函数
+sed -i '6c disable_functions = passthru,exec,chroot,chgrp,chown,popen,pcntl_exec,ini_alter,ini_restore,dl,openlog,syslog,readlink,symlink,popepassthru,pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wifcontinued,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,imap_open,apache_setenv;' /www/server/php/73/etc/php.ini
+
+
 
 cd /root/
 
