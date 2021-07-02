@@ -70,7 +70,7 @@ cd /root/ && wget https://github.com/guliter/gameon/releases/download/1.0/GameOn
 ##处理nginx伪静态和运行目录
 echo -e "${Info} 正在处理nginx内容"
 echo 'location / {if (!-e $request_filename) {rewrite ^/(.*)$ /index.php?$1 last;}}'> /www/server/panel/vhost/rewrite/$website.conf
-#sed -i "s:\/www\/wwwroot\/${website}:\/www\/wwwroot\/${website}\/public:g" /www/server/panel/vhost/nginx/$website.conf
+sed -i "s:\/www\/wwwroot\/${website}:\/www\/wwwroot\/${website}\/public:g" /www/server/panel/vhost/nginx/$website.conf
 sed -i '6c root 	/www/wwwroot/'${website}'/public/;' /www/server/panel/vhost/nginx/$website.conf
 
 
@@ -78,7 +78,7 @@ echo -e "${Info} 处理nginx内容已完成"
 sleep 1
 
 #处理php 关闭 PATH_INFO:
-sed -i "s:include pathinfo.conf:#include pathinfo.conf:g" /www/server/nginx/conf/enable-php-71.conf
+#sed -i "s:include pathinfo.conf:#include pathinfo.conf:g" /www/server/nginx/conf/enable-php-71.conf
 
 cd /root/
 
@@ -90,35 +90,41 @@ echo -e "${Info} 正在配置站点基本信息"
 cd /www/wwwroot/$website
 #cp conf/application.ini.new conf/application.ini
 #sed -i "s/websiteurl/$website/g" /www/wwwroot/$website/conf/application.ini
-sed -i "s/faka/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
-sed -i "s/faka/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
-sed -i "s/1314521/$mysqlpassword/g" /www/wwwroot/$website/conf/application.ini
+#sed -i "s/faka/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
+#sed -i "s/faka/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
+#sed -i "s/1314521/$mysqlpassword/g" /www/wwwroot/$website/conf/application.ini
+#===============================================================================
+#sed -i "s/websiteurl/$website/g" /www/wwwroot/$website/conf/application.ini
+#sed -i "s/faka/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
+#sed -i "s/faka/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
+#sed -i "s/1314521/$mysqlpassword/g" /www/wwwroot/$website/conf/application.ini
+
 echo -e "${Info} 配置站点基本信息已完成"
 sleep 1
 
 
 #导入数据库
-echo -e "${Info} 正在导入数据库"
-cd /www/wwwroot/$website/install
-mysql -u$mysqldatabas -p$mysqlpassword $mysqldatabase < faka.sql >/dev/null 2>&1
-echo -e "${Info} 导入数据库已完成"
-sleep 4
+#echo -e "${Info} 正在导入数据库"
+#cd /www/wwwroot/$website/install
+#mysql -u$mysqldatabas -p$mysqlpassword $mysqldatabase < faka.sql >/dev/null 2>&1
+#echo -e "${Info} 导入数据库已完成"
+#sleep 4
 
 
 
 cd /root/
 
 ##加入定时任务
-echo -e "${Info} 正在添加定时任务"
-echo "*/2 * * * * php -q /www/wwwroot/$website/public/cli.php request_uri=\"/crontab/sendemail/index\"" >> /var/spool/cron/root
-chkconfig –level 35 crond on
-/sbin/service crond restart
-echo -e "${Info} 添加定时任务已完成"
-sleep 1
+#echo -e "${Info} 正在添加定时任务"
+#echo "*/2 * * * * php -q /www/wwwroot/$website/public/cli.php request_uri=\"/crontab/sendemail/index\"" >> /var/spool/cron/root
+#chkconfig –level 35 crond on
+#/sbin/service crond restart
+#echo -e "${Info} 添加定时任务已完成"
+#sleep 1
 
 ##重启php和nginx
 echo -e "${Info} 正在重启PHP"
-/etc/init.d/php-fpm-71 restart
+/etc/init.d/php-fpm-73 restart
 echo -e "${Info} 重启PHP已完成"
 sleep 1
 echo -e "${Info} 正在重启NGINX"
