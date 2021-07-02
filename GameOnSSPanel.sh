@@ -57,14 +57,14 @@ esac
 echo -e "${Info} 请等待系统自动操作......"
 
 rm -rf /www/wwwroot/$website
-rm -rf /root/gameon
+rm -rf /root/GameOn
 mkdir /www/wwwroot/$website
 
 #处理源码
 yum install -y  unzip
 yum install -y git
-cd /root/ && git clone https://github.com/guliter/gameon && cd /root/gameon && chmod +x oi.guliter.tk.tar.gz && tar -zxvf  oi.guliter.tk.tar.gz && cd /root/gameon/oi.guliter.tk && mv * .[^.]* /www/wwwroot/$website/ && cd /www/wwwroot/$website 
-chmod -R 777 conf/application.ini && chmod -R 777 install/ && chmod -R 777 temp/ && chmod -R 777 log
+cd /root/ && wget https://github.com/guliter/gameon/releases/download/1.0/GameOn.tar.gz &&  chmod +x GameOn.tar.gz && tar -zxvf  GameOn.tar.gz && cd /root/GameOn && mv * .[^.]* /www/wwwroot/$website/ && cd /www/wwwroot/$website 
+
 
 
 ##处理nginx伪静态和运行目录
