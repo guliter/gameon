@@ -78,7 +78,7 @@ echo -e "${Info} 处理nginx内容已完成"
 sleep 1
 
 #处理php 关闭 PATH_INFO:
-sed -i "s:include pathinfo.conf:#include pathinfo.conf:g" /www/server/nginx/conf/enable-php-73.conf
+sed -i "s:include pathinfo.conf:#include pathinfo.conf:g" /www/server/nginx/conf/enable-php-71.conf
 
 cd /root/
 
@@ -130,7 +130,7 @@ sleep 1
 
 ##重启php和nginx
 echo -e "${Info} 正在重启PHP"
-/etc/init.d/php-fpm-73 restart
+/etc/init.d/php-fpm-71 restart
 echo -e "${Info} 重启PHP已完成"
 sleep 1
 echo -e "${Info} 正在重启NGINX"
