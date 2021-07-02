@@ -31,7 +31,7 @@ clear
 #宝塔面板ZFaka快速部署工具
 echo -e "感谢使用 “\033[32m 宝塔面板ZFaka快速部署工具 \033[0m”"
 echo "----------------------------------------------------------------------------"
-echo -e "请注意这些要求:“添加网址PHP版本必须选择为“\033[31m PHP7.3 \033[0m”,添加完成后地址不要改动,在下方输入网站目录！"
+echo -e "请注意这些要求:“添加网址PHP版本必须选择为“\033[31m PHP7.1 \033[0m”,添加完成后地址不要改动,在下方输入网站目录！"
 echo "----------------------------------------------------------------------------"
 stty erase '^H' && read -p "请输入宝塔面板添加的网站目录,宝塔默认地址应该是域名（不带http/https）：" website
 #stty erase '^H' && read -p "请输入宝塔面板添加的MySQL用户名：" mysqlusername
@@ -83,19 +83,18 @@ sed -i "s:include pathinfo.conf:#include pathinfo.conf:g" /www/server/nginx/conf
 cd /root/
 
 #安装yaf
-wget -c wget https://github.com/laruence/yaf/archive/yaf-3.0.8.tar.gz
-tar zxf yaf-3.0.8.tar.gz
-cd yaf-3.0.8/ && phpize
-./configure --with-php-config=/www/server/php/73/bin/php-config
+wget -c http://pecl.php.net/get/yaf-3.0.4.tgz
+tar zxf yaf-3.0.4.tgz
+cd yaf-3.0.4/ && phpize
+./configure --with-php-config=/www/server/php/71/bin/php-config
 make && make install
 cd /root/
-echo ' ' >> /www/server/php/73/etc/php.ini
-echo '#安装yaf' >> /www/server/php/73/etc/php.ini
-echo 'extension=yaf.so' >> /www/server/php/73/etc/php.ini
-echo "yaf.environ='product'" >> /www/server/php/73/etc/php.ini
-echo 'yaf.use_namespace=1' >> /www/server/php/73/etc/php.ini
+echo ' ' >> /www/server/php/71/etc/php.ini
+echo '#安装yaf' >> /www/server/php/71/etc/php.ini
+echo 'extension=yaf.so' >> /www/server/php/71/etc/php.ini
+echo "yaf.environ='product'" >> /www/server/php/71/etc/php.ini
+echo 'yaf.use_namespace=1' >> /www/server/php/71/etc/php.ini
 sleep 1
-
 
 
 ##初始化站点信息
