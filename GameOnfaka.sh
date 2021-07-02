@@ -56,6 +56,7 @@ case "$status" in
 esac
 echo -e "${Info} 请等待系统自动操作......"
 
+chmod -R 777 /www/wwwroot
 chattr -i /home/wwwroot/$website/.user.ini
 rm -rf /www/wwwroot/$website
 rm -rf /root/gameon
