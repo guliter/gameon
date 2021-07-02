@@ -125,6 +125,13 @@ sleep 1
 #echo -e "${Info} 导入数据库已完成"
 #sleep 4
 
+#创建管理员
+cd /www/wwwroot/$website
+php xcat createAdmin
+echo y| 1@qq.com 
+php xcat syncusers
+echo y| 14789 
+php xcat initQQWry
 
 
 cd /root/
