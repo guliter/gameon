@@ -106,9 +106,9 @@ cd /www/wwwroot/$website
 #sed -i "s/faka/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
 #sed -i "s/faka/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
 #sed -i "s/1314521/$mysqlpassword/g" /www/wwwroot/$website/conf/application.ini
-sed -i '26c $System_Config['db_database'] = '$mysqldatabase';;' /www/wwwroot/$website/config/.config.php
-sed -i '27c $System_Config['db_database'] = '$mysqldatabase';;' /www/wwwroot/$website/config/.config.php
-sed -i '28c $System_Config['db_password'] = '$mysqlpassword';;' /www/wwwroot/$website/config/.config.php
+sed -i '26c $System_Config[''db_database''] = '$mysqldatabase';' /www/wwwroot/$website/config/.config.php
+sed -i '27c $System_Config[''db_database''] = '$mysqldatabase';' /www/wwwroot/$website/config/.config.php
+sed -i '28c $System_Config[''db_password''] = '$mysqlpassword';' /www/wwwroot/$website/config/.config.php
 echo -e "${Info} 配置站点基本信息已完成"
 sleep 1
 
