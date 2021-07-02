@@ -81,9 +81,9 @@ sleep 1
 sed -i "s:include pathinfo.conf:#include pathinfo.conf:g" /www/server/nginx/conf/enable-php-73.conf
 
 #安装yaf
-wget -c http://pecl.php.net/get/yaf-3.0.4.tgz
-tar zxf yaf-3.0.4.tgz
-cd yaf-3.0.4/ && phpize
+wget -c http://pecl.php.net/get/yaf-3.0.8.tar.gz
+tar zxf yaf-3.0.8.tar.gz
+cd yaf-3.0.8/ && phpize
 ./configure --with-php-config=/www/server/php/73/bin/php-config
 make && make install
 cd /root/
