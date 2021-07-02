@@ -35,8 +35,8 @@ echo -e "请注意这些要求:“添加网址PHP版本必须选择为“\033[31
 echo "----------------------------------------------------------------------------"
 stty erase '^H' && read -p "请输入宝塔面板添加的网站目录,宝塔默认地址应该是域名（不带http/https）：" website
 #stty erase '^H' && read -p "请输入宝塔面板添加的MySQL用户名：" mysqlusername
-stty erase '^H' && read -p "请输入宝塔面板添加的MySQL数据库名：" mysqldatabase
-stty erase '^H' && read -p "请输入宝塔面板添加的MySQL密码：" mysqlpassword
+#stty erase '^H' && read -p "请输入宝塔面板添加的MySQL数据库名：" mysqldatabase
+#stty erase '^H' && read -p "请输入宝塔面板添加的MySQL密码：" mysqlpassword
 sleep 1
 echo -e "${Info} 请确认您输入的网站域名：$website"
 #echo -e "${Info} 请确认您输入的MySQL用户名：$mysqlusername"
