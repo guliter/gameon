@@ -29,7 +29,7 @@ Tip="${Green_font_prefix}[注意]${Font_color_suffix}"
 
 clear
 #宝塔面板ZFaka快速部署工具
-echo -e "感谢使用 “\033[32m GameOnSSPanel快速部署工具 \033[0m”"
+echo -e "感谢使用 “\033[32m GameOnSSPanel 快速部署工具 \033[0m”"
 echo "----------------------------------------------------------------------------"
 echo -e "请注意这些要求:“添加网址PHP版本必须选择为“\033[31m PHP7.3 \033[0m”,添加完成后地址不要改动,在下方输入网站目录！"
 echo "----------------------------------------------------------------------------"
@@ -97,23 +97,9 @@ cd /root/
 echo -e "${Info} 正在配置站点基本信息"
 cd /www/wwwroot/$website
 #cp conf/application.ini.new conf/application.ini
-#sed -i "s/websiteurl/$website/g" /www/wwwroot/$website/conf/application.ini
-#sed -i "s/faka/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
-#sed -i "s/faka/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
-#sed -i "s/1314521/$mysqlpassword/g" /www/wwwroot/$website/conf/application.ini
-#===============================================================================
-#sed -i "s/websiteurl/$website/g" /www/wwwroot/$website/conf/application.ini
-#sed -i "s/faka/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
-#sed -i "s/faka/$mysqldatabase/g" /www/wwwroot/$website/conf/application.ini
-#sed -i "s/1314521/$mysqlpassword/g" /www/wwwroot/$website/conf/application.ini
-
 sed -i "s/GameOn/$mysqldatabase/g" /www/wwwroot/$website/config/.config.php
 sed -i "s/1314521/$mysqlpassword/g" /www/wwwroot/$website/config/.config.php
-
-
-#sed -i "26c $System_Config[''db_database''] = '$mysqldatabase';" /www/wwwroot/$website/config/.config.php
-#sed -i '27c $System_Config[''db_database''] = '$mysqldatabase';' /www/wwwroot/$website/config/.config.php
-#sed -i '28c $System_Config[''db_password''] = '$mysqlpassword';' /www/wwwroot/$website/config/.config.php
+#sed -i '479c display_errors = Off;' /www/server/php/73/etc/php.ini
 echo -e "${Info} 配置站点基本信息已完成"
 sleep 1
 
@@ -125,12 +111,11 @@ sleep 1
 #echo -e "${Info} 导入数据库已完成"
 #sleep 4
 
+echo -e "${Info} 请等确认已在宝塔内导入正确信息的数据库"
 #创建管理员
 cd /www/wwwroot/$website
 php xcat createAdmin
-echo y| 1@qq.com 
 php xcat syncusers
-echo y| 14789 
 php xcat initQQWry
 
 
@@ -221,7 +206,6 @@ sleep 1
 clear
 echo "--------------------------------------------------------------------------------"
 echo -e "${Info} 部署完成，请打开http://$website即可浏览"
-echo -e "${Info} 后台地址：http://$website/Admin/login"
 echo -e "${Info} 如果打不开站点，请到宝塔面板中软件管理重启nginx和php7.1"
 echo -e "${Info} 自定义配置，请登录管理面板进行修改"
 echo "--------------------------------------------------------------------------------"
