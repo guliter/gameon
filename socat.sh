@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/bash 端口转发
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
