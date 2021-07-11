@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash ZFAKA部署【php7.1】
 ##检查操作系统
 check_sys(){
 	if [[ -f /etc/redhat-release ]]; then
