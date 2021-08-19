@@ -1,0 +1,90 @@
+500错误提示： /conf/application.ini 第二行路径一定要填写正确
+
+
+数据库名称
+
+yaf.use_namespace=1
+
+apache:
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* index.php
+
+======================================================================
+
+邮件163 25 不加密
+
+
+
+配置文件添加配置:
+
+[yaf]
+yaf.use_namespace=1
+
+
+一定要重启php
+
+一定要手动创建数据库（保持默认），再导入数据库(数据库5.6版本)
+
+登录地址： http://oi.guliter.tk/407413685
+
+407413685@qq.com 123456
+
+===================================================
+
+背景图片设置：
+https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/6a600c338744ebf894c9e667dff9d72a6059a72a.jpg
+
+======================================s=====================================================
+
+安全措施：
+
+  1.改面板名称;
+    2.改面板默认端口;
+    3.开启BasicAuth;
+    4.改SSH默认端口并禁用;
+    5.禁PING;
+    6.删除常用端口之外的任何其他端口,FTP不常用的话最好一并删除相关端口;
+    7.开启面板的离线模式.
+
+
+ZFAKA:
+
+    1.进数据库直接更改默认管理员邮箱名称和密码;
+    2.数据库直接删除测试用户;
+    3.按照官方给出的方法改后台管理URL名称,最好随机生成,分别在两个地方改:
+       /conf/application.ini 中的"Admin" 改为,例如"Kdflmkmll";
+       /application/init.php 中的"ADMIN_DIR"的值 改为""Kdflmkmll";
+       然后记得把/application/modules/Admin 的"Admin"文件夹改成你生成的文件夹名称 "Kdflmkmll".
+    4.记得给域名加SSL;
+    5.ROBOT文件禁止搜索引擎收录,具体规则自己搜索;
+    6. 并不推荐,但这样会相对安全一些,把所有模板文件中ZFAKA的标识及URL去掉或自定义,例如FOOTER文件,就需要改.
+
+=========================================================================================
+
+zfaka系统如何让他不显示销量
+
+/www/wwwroot/buy.xxxx.com/templates/shadan/index
+
+找到文件夹下的 index.html
+
+去掉如下内容，删除掉。（删前备份一下）
+<th>销量</th>
+
+销量的代码 变量是 qty_sell 也要去掉
+<td><?php echo $p['qty_sell'];?></td>.
+
+
+
+
+
+
+测试支付如果提示未配置weburl
+看下你的网站绑定了几个域名，比如我绑定了http://www.hanami.cc和http://hanami.cc
+
+我的weburl设置的是http://www.hanami.cc的域名，你在http://hanami.cc这个域名上支付就会失败。
+
+我们可以在网站上设置一个重定向，将http://hanami.cc重定向到http://www.hanami.cc即可。
+
+提示：下图重定向里的$request_uri是自动添加的，不用你输入这个。你就输入要重定向到的地址即可。
