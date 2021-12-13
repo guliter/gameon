@@ -225,6 +225,7 @@ start_menu(){
     ;;
     2)
     pr
+    blue "提示：如果系统安装过其他服务可能显示会比较乱！请从开头以 【nohup socat TCP4-LISTEN】看参数即可"
     red "提示：可以手动删除 /etc/rc.d/rc.local 对应端口 然后重启reboot"
     ;;
     3)
