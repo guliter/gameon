@@ -11,6 +11,29 @@ export PATH
 #	Github:https://github.com/iiiiiii1/Socat
 # ====================================================
 
+
+# 设置字体颜色函数
+function blue(){
+    echo -e "\033[34m\033[01m $1 \033[0m"
+}
+function green(){
+    echo -e "\033[32m\033[01m $1 \033[0m"
+}
+function greenbg(){
+    echo -e "\033[43;42m\033[01m $1 \033[0m"
+}
+function red(){
+    echo -e "\033[31m\033[01m $1 \033[0m"
+}
+function redbg(){
+    echo -e "\033[37;41m\033[01m $1 \033[0m"
+}
+function yellow(){
+    echo -e "\033[33m\033[01m $1 \033[0m"
+}
+function white(){
+    echo -e "\033[37m\033[01m $1 \033[0m"
+}
 Green="\033[32m"
 Font="\033[0m"
 Blue="\033[33m"
@@ -153,6 +176,12 @@ status_socat(){
     fi
 }
 
+status_socatt(){
+    if [ -s /usr/bin/socat ]; then
+     red "--->>> socat转发服务【已经安装】！ <<<---"
+    fi
+}
+
 main_x(){
 checkos
 rootness
@@ -172,4 +201,37 @@ config_socat
 start_socat
 }
 
-status_socat
+start_menu(){
+    clear
+    echo
+    white "—————————————【Socat端口转发】——————————————"
+    red "1.Socat--安装端口转发"
+    blue "2.Socat--删除转发端口"
+    green "3.Socat---添加转发端口"
+    status_socatt
+    green "—————————————【如需退出按【0】退出选项】——————————————"
+    echo
+    echo
+    read -p "请输入数字:" num
+    case "$num" in
+    1)
+    status_socat
+    ;;
+    2)
+    green "3.Socat---添加转发端口"
+    ;;
+    3)
+    status_socat
+    ;;
+    0)
+    exit 1
+    ;;
+    *)
+    clear
+    echo "请输入正确数字"
+    sleep 1s
+    start_menu
+    ;;
+    esac
+}
+
