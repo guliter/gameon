@@ -176,7 +176,7 @@ status_socat(){
     fi
 }
 
-status_socatt(){
+socatt(){
     if [ -s /usr/bin/socat ]; then
      red "--->>> socat转发服务【已经安装】！ <<<---"
     fi
@@ -209,13 +209,12 @@ sed -n '14,101p' /etc/rc.d/rc.local
 start_menu(){
     clear
     echo
-    white "—————————————【Socat端口转发】——————————————"
+   socatt
     red "1.Socat--安装端口转发"
     blue "2.Socat--查看端口转发"
     green "3.Socat--添加转发端口"
     yellow "4.Socat--卸载服务"
-    status_socatt
-    green "—————————————【如需退出按【0】退出选项】——————————————"
+    blue "【如需退出按【0】退出选项】"
     echo
     echo
     read -p "请输入数字:" num
@@ -244,4 +243,6 @@ start_menu(){
     ;;
     esac
 }
+
 start_menu
+
