@@ -234,4 +234,4 @@ start_menu(){
     ;;
     esac
 }
-
+start_menu
