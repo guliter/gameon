@@ -201,13 +201,17 @@ config_socat
 start_socat
 }
 
+pr(){
+clear
+sed -n '14,101p' /etc/rc.d/rc.local
+}
 
 start_menu(){
     clear
     echo
     white "—————————————【Socat端口转发】——————————————"
     red "1.Socat--安装端口转发"
-    blue "2.Socat--删除转发端口"
+    blue "2.Socat--查看端口转发"
     green "3.Socat--添加转发端口"
     yellow "4.Socat--卸载服务"
     status_socatt
@@ -220,7 +224,8 @@ start_menu(){
     status_socat
     ;;
     2)
-    red "提示：手动删除 /etc/rc.d/rc.local 对应端口"
+    pr
+    red "提示：可以手动删除 /etc/rc.d/rc.local 对应端口 然后重启reboot"
     ;;
     3)
     status_socat
