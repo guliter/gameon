@@ -151,7 +151,9 @@ systemctl start rc-local >/dev/null 2>&1
     echo -e "${Blue}你的本地端口为:${port1}${Font}"
     echo -e "${Blue}你的远程端口为:${port2}${Font}"
     echo -e "${Blue}你的本地服务器IP为:${ip}${Font}"
-     red "提示：在软件处填写---本地端口：${port1}${Font}本地IP：${ip}${Font}其他保持远程服务器参数不变即可！"
+     yellow "提示：在软件处填写"
+     red "本地端口：${port1}${Font}"
+     red "本地IP：${ip}${Font}其他保持远程服务器协议参数不变即可！"
     exit 0
 }
 
