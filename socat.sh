@@ -201,13 +201,15 @@ config_socat
 start_socat
 }
 
+
 start_menu(){
     clear
     echo
     white "—————————————【Socat端口转发】——————————————"
     red "1.Socat--安装端口转发"
     blue "2.Socat--删除转发端口"
-    green "3.Socat---添加转发端口"
+    green "3.Socat--添加转发端口"
+    yellow "4.Socat--卸载服务"
     status_socatt
     green "—————————————【如需退出按【0】退出选项】——————————————"
     echo
@@ -218,10 +220,13 @@ start_menu(){
     status_socat
     ;;
     2)
-    green "3.Socat---添加转发端口"
+    red "提示：手动删除 /etc/rc.d/rc.local 对应端口"
     ;;
     3)
     status_socat
+    ;;
+    4)
+    yum remove socat
     ;;
     0)
     exit 1
