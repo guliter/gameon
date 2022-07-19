@@ -29,8 +29,8 @@ function white(){
 
 cd /root
 yum install unzip
-wget -N --no-check-certificate https://coding.lula.fun/usr/uploads/2018/06/795788678.zip
-unzip 795788678.zip
+wget -N --no-check-certificate https://raw.githubusercontent.com/guliter/gameon/main/change/change.zip
+unzip change.zip
 mkdir /home/CloudFlare_DDNS
 cp -f /root/config.conf /home/CloudFlare_DDNS
 cp -f /root/CloudFlare_DDNS_Setter.sh /home/CloudFlare_DDNS
