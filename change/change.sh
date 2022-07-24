@@ -34,7 +34,20 @@ unzip change.zip
 if [ ! -f "/home/CloudFlare_DDNS" ];then
 mkdir /home/CloudFlare_DDNS
 else
+get_char()
+{
+    SAVEDSTTY=`stty -g`
+    stty -echo
+    stty cbreak
+    dd if=/dev/tty bs=1 count=1 2> /dev/null
+    stty -raw
+    stty echo
+    stty $SAVEDSTTY
+}
 greenbg "已经安装过了！重新配置！"
+echo "按任意键继续...."
+echo " CTRL+C 退出安装...."
+char=`get_char`
 fi
 
 cp -f /root/config.conf /home/CloudFlare_DDNS
