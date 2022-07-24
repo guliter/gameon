@@ -39,6 +39,7 @@ get_char()
     stty echo
     stty $SAVEDSTTY
 }
+echo
 redbg "已经安装过了！"
 echo
 red "按任意键重新配置！...."
