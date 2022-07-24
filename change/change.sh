@@ -27,10 +27,7 @@ function white(){
 }
 
 
-cd /root
-yum install unzip
-wget -N --no-check-certificate https://raw.githubusercontent.com/guliter/gameon/main/change/change.zip
-unzip change.zip
+
 if [ ! -f "/home/CloudFlare_DDNS" ];then
 get_char()
 {
@@ -42,15 +39,19 @@ get_char()
     stty echo
     stty $SAVEDSTTY
 }
-greenbg "已经安装过了！重新配置！"
+redbg "已经安装过了！"
 echo
-red "按任意键继续...."
+red "按任意键重新配置！...."
 echo
 yellow "CTRL+C 退出安装...."
 else
 mkdir /home/CloudFlare_DDNS
 fi
 
+cd /root
+yum install unzip
+wget -N --no-check-certificate https://raw.githubusercontent.com/guliter/gameon/main/change/change.zip
+unzip change.zip
 cp -f /root/config.conf /home/CloudFlare_DDNS
 cp -f /root/CloudFlare_DDNS_Setter.sh /home/CloudFlare_DDNS
 echo
