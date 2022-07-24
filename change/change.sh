@@ -32,8 +32,6 @@ yum install unzip
 wget -N --no-check-certificate https://raw.githubusercontent.com/guliter/gameon/main/change/change.zip
 unzip change.zip
 if [ ! -f "/home/CloudFlare_DDNS" ];then
-mkdir /home/CloudFlare_DDNS
-else
 get_char()
 {
     SAVEDSTTY=`stty -g`
@@ -48,6 +46,10 @@ greenbg "已经安装过了！重新配置！"
 echo "按任意键继续...."
 echo " CTRL+C 退出安装...."
 char=`get_char`
+
+else
+mkdir /home/CloudFlare_DDNS
+
 fi
 
 cp -f /root/config.conf /home/CloudFlare_DDNS
