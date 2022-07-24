@@ -43,13 +43,12 @@ get_char()
     stty $SAVEDSTTY
 }
 greenbg "已经安装过了！重新配置！"
-echo "按任意键继续...."
-echo " CTRL+C 退出安装...."
-char=`get_char`
-
+echo
+red "按任意键继续...."
+echo
+yellow "CTRL+C 退出安装...."
 else
 mkdir /home/CloudFlare_DDNS
-
 fi
 
 cp -f /root/config.conf /home/CloudFlare_DDNS
