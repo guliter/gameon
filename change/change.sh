@@ -31,7 +31,12 @@ cd /root
 yum install unzip
 wget -N --no-check-certificate https://raw.githubusercontent.com/guliter/gameon/main/change/change.zip
 unzip change.zip
+if [ ! -f "/home/CloudFlare_DDNS" ];then
 mkdir /home/CloudFlare_DDNS
+else
+greenbg "已经安装过了！重新配置！"
+fi
+
 cp -f /root/config.conf /home/CloudFlare_DDNS
 cp -f /root/CloudFlare_DDNS_Setter.sh /home/CloudFlare_DDNS
 echo
