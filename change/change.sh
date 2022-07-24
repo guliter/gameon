@@ -44,6 +44,7 @@ echo
 red "按任意键重新配置！...."
 echo
 yellow "CTRL+C 退出安装...."
+char=`get_char`
 else
 mkdir /home/CloudFlare_DDNS
 fi
